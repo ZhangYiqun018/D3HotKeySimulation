@@ -1,0 +1,7 @@
+args_key_e = ('keyboard', 'e', 1, 0.25)
+args_key_1 = ('keyboard', '1', 1, 0.25)
+args_key_2 = ('keyboard', '2', 2, 2.0)
+args_key_3 = ('keyboard', '3', 2, 2.0)
+args_key_4 = ('keyboard', '4', 3, 0.300)
+args_mouse_left = ('mouse', 'left', 3, 2.0)
+args_mouse_right = ('mouse', 'right', 2, 2.0)
