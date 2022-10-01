@@ -14,6 +14,8 @@ def on_press(key):
         global process
         process = create_process()
         start_process(process)
+    if key == pynput.keyboard.Key.space:
+        AHK('mouse', 'left', 5, 0.1)
 
 def hotkey_release():
     pag.keyUp('1')

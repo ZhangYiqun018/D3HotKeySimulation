@@ -60,3 +60,15 @@ class AHK():
                 time.sleep(interval)
         elif model == 4:
             pass
+        elif model == 5:
+            # 鼠标特殊事件，连点模式
+            print("连点20下")
+            for _ in range(20):
+                pos = pag.position()
+                pag.click(
+                    x = pos[0],
+                    y = pos[1],
+                    clicks=1,
+                    button='left',
+                )
+                time.sleep(interval)
