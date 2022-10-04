@@ -1,6 +1,7 @@
 from multiprocessing import Process
 import pynput.keyboard as pk
 import pynput
+import argparse
 from AHK import *
 # keyboard 操作
 # keyDown 按住不动
@@ -60,17 +61,24 @@ def start_process(process):
 def end_process(process):
     for p in process:
         p.terminate()
-        
+
+def get_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--play_role', default='dh', type=str, help='choice your role config')
+
+    args = parser.parse_args()
+    return args
 if __name__ == '__main__':
     # model 
     ## 1 按住不动
     ## 2 间隔按键
     ## 3 按住shift
-    play_role = 'monk'
-    if play_role == 'dh':
+    config = get_args()
+    if config.play_role == 'dh':
         from config.dh_config import *
-    elif play_role == 'monk':
+    elif config.play_role == 'monk':
         from config.monk_config import *
-
+    else:
+        print('error loading config file ...')
     with pk.Listener(on_press=on_press, on_release=on_release) as pklistener:
         pklistener.join()
