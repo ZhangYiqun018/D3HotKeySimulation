@@ -73,6 +73,7 @@ if __name__ == '__main__':
     ## 1 按住不动
     ## 2 间隔按键
     ## 3 按住shift
+    ## 4 禁止
     config = get_args()
     if config.play_role == 'dh':
         from config.dh_config import *
