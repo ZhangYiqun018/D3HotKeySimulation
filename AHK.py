@@ -1,5 +1,8 @@
-import pyautogui as pag
 import time
+
+import pyautogui as pag
+import pynput.keyboard as pk
+
 
 class AHK():
     def __init__(self, 
@@ -34,7 +37,6 @@ class AHK():
                 time.sleep(interval)
         elif model == 4:
             pass
-
     def mouse(self, button, model, interval):
         if button != 'left' and button != 'right':
             print('button设置错误！')
@@ -44,18 +46,15 @@ class AHK():
             )
         elif model == 2:
             while True:
-                pag.click(
-                    clicks=1,
-                    button=button,
-                )
+                # 左键容易出bug，所以改成按下再抬起
+                pag.mouseDown(button=button)
+                time.sleep(0.2)
+                pag.mouseUp(button=button)
                 time.sleep(interval)
         elif model == 3:
             while True:
                 pag.keyDown('shift')
-                pag.click(
-                    clicks=1,
-                    button=button
-                )
+                pag.click(clicks=1,button=button)
                 pag.keyUp('shift')
                 time.sleep(interval)
         elif model == 4:
@@ -72,3 +71,4 @@ class AHK():
                     button='left',
                 )
                 time.sleep(interval)
+
